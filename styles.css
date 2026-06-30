@@ -115,14 +115,20 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: clip;
   color: var(--color-text-main);
   background: var(--color-background);
   font-family: "Urbanist", Arial, Helvetica, sans-serif;
   line-height: 1.5;
+}
+
+body.operations-scroll-lock {
+  overscroll-behavior: contain;
 }
 
 a {
@@ -1141,6 +1147,7 @@ h3 {
     background: transparent;
     box-shadow: none;
     scroll-snap-type: none;
+    touch-action: pan-x;
   }
 
   .operations-slide,

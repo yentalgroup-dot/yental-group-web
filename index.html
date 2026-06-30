@@ -46,6 +46,7 @@
           playsinline
           webkit-playsinline
           preload="auto"
+          poster="assets/operations-port.jpg"
         ></video>
         <video
           class="home-banner-video home-banner-video-mobile"
@@ -57,6 +58,7 @@
           playsinline
           webkit-playsinline
           preload="auto"
+          poster="assets/operations-port.jpg"
         ></video>
         <div class="home-banner-overlay"></div>
         <div class="home-banner-content">
@@ -384,6 +386,7 @@
       let activeOperationIndex = 0;
       let wheelIsLocked = false;
       let touchStartY = 0;
+      let touchIsLocked = false;
 
       const setOperationSlide = (activeIndex) => {
         activeOperationIndex = activeIndex;
@@ -454,23 +457,36 @@
 
       operationsSlider.addEventListener("touchstart", (event) => {
         touchStartY = event.touches[0].clientY;
+        touchIsLocked = false;
       }, { passive: true });
 
-      operationsSlider.addEventListener("touchend", (event) => {
+      operationsSlider.addEventListener("touchmove", (event) => {
         if (!mobileOperationsQuery.matches) {
           return;
         }
 
-        const touchEndY = event.changedTouches[0].clientY;
-        const swipeDistance = touchStartY - touchEndY;
+        const touchCurrentY = event.touches[0].clientY;
+        const swipeDistance = touchStartY - touchCurrentY;
+        const goingDown = swipeDistance > 24;
+        const goingUp = swipeDistance < -24;
+        const canGoDown = goingDown && activeOperationIndex < operationSlides.length - 1;
+        const canGoUp = goingUp && activeOperationIndex > 0;
 
-        if (swipeDistance > 34 && activeOperationIndex < operationSlides.length - 1) {
-          nextOperationSlide();
+        if (canGoDown || canGoUp) {
+          event.preventDefault();
         }
 
-        if (swipeDistance < -34 && activeOperationIndex > 0) {
-          previousOperationSlide();
+        if (!touchIsLocked && (canGoDown || canGoUp)) {
+          touchIsLocked = true;
+          document.body.classList.add("operations-scroll-lock");
+          setOperationSlide(activeOperationIndex + (canGoDown ? 1 : -1));
+          touchStartY = touchCurrentY;
         }
+      }, { passive: false });
+
+      operationsSlider.addEventListener("touchend", () => {
+        touchIsLocked = false;
+        document.body.classList.remove("operations-scroll-lock");
       }, { passive: true });
 
       setOperationSlide(0);
