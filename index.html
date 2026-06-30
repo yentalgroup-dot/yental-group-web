@@ -291,11 +291,15 @@
             </p>
           </div>
           <form
+            id="contact-form"
             class="contact-form"
-            action="mailto:info@yentalgroup.com"
-            method="post"
-            enctype="text/plain"
+            action="https://formsubmit.co/ajax/info@yentalgroup.com"
+            method="POST"
           >
+            <input type="hidden" name="_subject" value="Nueva solicitud B2B desde yentalgroup.com">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <label>
                 Nombre
@@ -309,7 +313,7 @@
             <div class="form-row">
               <label>
                 Correo electrónico
-                <input type="email" name="Correo electronico" placeholder="correo@empresa.com" required>
+                <input type="email" name="email" placeholder="correo@empresa.com" required>
               </label>
               <label>
                 Teléfono
@@ -330,6 +334,7 @@
               ></textarea>
             </label>
             <button class="button primary" type="submit">Enviar solicitud B2B</button>
+            <p class="form-status" id="contact-form-status" role="status" aria-live="polite" hidden></p>
           </form>
         </div>
       </section>
@@ -354,6 +359,47 @@
           document.body.classList.remove("nav-open");
           menuToggle.setAttribute("aria-expanded", "false");
         });
+      });
+
+      const contactForm = document.querySelector("#contact-form");
+      const contactFormStatus = document.querySelector("#contact-form-status");
+
+      contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const submitButton = contactForm.querySelector("button[type='submit']");
+        const originalButtonText = submitButton.textContent;
+        const formData = new FormData(contactForm);
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
+        contactFormStatus.hidden = false;
+        contactFormStatus.className = "form-status";
+        contactFormStatus.textContent = "Estamos enviando tu solicitud.";
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error("No se pudo enviar el formulario.");
+          }
+
+          contactForm.reset();
+          contactFormStatus.className = "form-status is-success";
+          contactFormStatus.textContent = "Solicitud enviada correctamente. Gracias, te contactaremos pronto.";
+        } catch (error) {
+          contactFormStatus.className = "form-status is-error";
+          contactFormStatus.textContent = "No se pudo enviar la solicitud. Escríbenos directamente a info@yentalgroup.com.";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
       });
 
       const homeVideos = document.querySelectorAll(".home-banner-video");
