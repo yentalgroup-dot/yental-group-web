@@ -294,6 +294,10 @@ h3 {
   object-position: center center;
 }
 
+.home-banner-video-mobile {
+  display: none;
+}
+
 .home-banner-overlay {
   background: linear-gradient(
     90deg,
@@ -1069,6 +1073,14 @@ h3 {
 
   .home-banner-video {
     object-position: center top;
+  }
+
+  .home-banner-video-desktop {
+    display: none;
+  }
+
+  .home-banner-video-mobile {
+    display: block;
   }
 
   .about-section,

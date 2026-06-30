@@ -35,12 +35,26 @@
     <main id="inicio">
       <section class="home-banner">
         <video
-          class="home-banner-video"
+          class="home-banner-video home-banner-video-desktop"
           src="assets/hero-video.mp4"
           autoplay
           muted
+          defaultMuted
           loop
           playsinline
+          webkit-playsinline
+          preload="auto"
+          poster="assets/hero-yental.jpg"
+        ></video>
+        <video
+          class="home-banner-video home-banner-video-mobile"
+          src="assets/hero-video-mobile.mp4"
+          autoplay
+          muted
+          defaultMuted
+          loop
+          playsinline
+          webkit-playsinline
           preload="auto"
           poster="assets/hero-yental.jpg"
         ></video>
@@ -340,40 +354,28 @@
         });
       });
 
-      const homeVideo = document.querySelector(".home-banner-video");
-      const mobileVideoQuery = window.matchMedia("(max-width: 620px)");
+      const homeVideos = document.querySelectorAll(".home-banner-video");
 
       const playHomeVideo = () => {
-        if (!homeVideo) {
-          return;
-        }
+        homeVideos.forEach((video) => {
+          video.muted = true;
+          video.defaultMuted = true;
+          video.loop = true;
+          video.autoplay = true;
+          video.playsInline = true;
 
-        homeVideo.muted = true;
-        homeVideo.loop = true;
-        homeVideo.autoplay = true;
-        homeVideo.playsInline = true;
+          const playAttempt = video.play();
 
-        const videoSource = mobileVideoQuery.matches
-          ? "assets/hero-video-mobile.mp4"
-          : "assets/hero-video.mp4";
-
-        if (!homeVideo.getAttribute("src")?.includes(videoSource)) {
-          homeVideo.setAttribute("src", videoSource);
-          homeVideo.load();
-        }
-
-        const playAttempt = homeVideo.play();
-
-        if (playAttempt !== undefined) {
-          playAttempt.catch(() => {
-            document.addEventListener("touchstart", () => homeVideo.play(), { once: true });
-            document.addEventListener("click", () => homeVideo.play(), { once: true });
-          });
-        }
+          if (playAttempt !== undefined) {
+            playAttempt.catch(() => {
+              document.addEventListener("touchstart", () => video.play(), { once: true });
+              document.addEventListener("click", () => video.play(), { once: true });
+            });
+          }
+        });
       };
 
       playHomeVideo();
-      mobileVideoQuery.addEventListener("change", playHomeVideo);
       window.addEventListener("pageshow", playHomeVideo);
 
       const operationSlides = document.querySelectorAll(".operations-slide");
