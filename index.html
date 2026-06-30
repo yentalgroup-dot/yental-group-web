@@ -381,8 +381,6 @@
       window.addEventListener("pageshow", playHomeVideo);
 
       const operationSlides = document.querySelectorAll(".operations-slide");
-      const operationsSlider = document.querySelector(".operations-slider");
-      const mobileOperationsQuery = window.matchMedia("(max-width: 620px)");
       let activeOperationIndex = 0;
 
       const setOperationSlide = (activeIndex) => {
@@ -403,15 +401,6 @@
       operationSlides.forEach((slide, slideIndex) => {
         const activateSlide = () => {
           setOperationSlide(slideIndex);
-
-          if (mobileOperationsQuery.matches) {
-            slide.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-              inline: "center"
-            });
-            return;
-          }
         };
 
         slide.addEventListener("click", activateSlide);
@@ -422,28 +411,6 @@
           }
         });
       });
-
-      operationsSlider.addEventListener("scroll", () => {
-        if (!mobileOperationsQuery.matches) {
-          return;
-        }
-
-        let closestIndex = 0;
-        let closestDistance = Number.POSITIVE_INFINITY;
-
-        operationSlides.forEach((slide, slideIndex) => {
-          const distance = Math.abs(slide.offsetLeft - operationsSlider.scrollLeft);
-
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestIndex = slideIndex;
-          }
-        });
-
-        if (closestIndex !== activeOperationIndex) {
-          setOperationSlide(closestIndex);
-        }
-      }, { passive: true });
 
       setOperationSlide(0);
 
