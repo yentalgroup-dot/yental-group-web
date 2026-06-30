@@ -9,7 +9,7 @@
       content="Yental Group SL gestiona exportaciones B2B al Caribe con productos europeos y marcas de primera calidad, logística integral y soluciones para pymes, construcción, vehículos y energía renovable."
     >
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="preload" href="assets/hero-video-mobile.mp4" as="video" type="video/mp4" media="(max-width: 620px)">
+    <link rel="preload" href="assets/hero-video-mobile-light-640.mp4" as="video" type="video/mp4" media="(max-width: 620px)">
     <link rel="preload" href="assets/hero-video.mp4" as="video" type="video/mp4" media="(min-width: 621px)">
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -50,7 +50,7 @@
         ></video>
         <video
           class="home-banner-video home-banner-video-mobile"
-          src="assets/hero-video-mobile.mp4"
+          src="assets/hero-video-mobile-light-640.mp4"
           autoplay
           muted
           defaultMuted
@@ -382,12 +382,8 @@
 
       const operationSlides = document.querySelectorAll(".operations-slide");
       const operationsSlider = document.querySelector(".operations-slider");
-      const operationsSection = document.querySelector(".operations-section");
       const mobileOperationsQuery = window.matchMedia("(max-width: 620px)");
       let activeOperationIndex = 0;
-      let wheelIsLocked = false;
-      let touchStartY = 0;
-      let touchIsLocked = false;
 
       const setOperationSlide = (activeIndex) => {
         activeOperationIndex = activeIndex;
@@ -404,47 +400,18 @@
         });
       };
 
-      const nextOperationSlide = () => {
-        const nextIndex = activeOperationIndex === operationSlides.length - 1 ? 0 : activeOperationIndex + 1;
-        setOperationSlide(nextIndex);
-      };
-
-      const previousOperationSlide = () => {
-        const previousIndex = Math.max(activeOperationIndex - 1, 0);
-        setOperationSlide(previousIndex);
-      };
-
-      const isOperationsDeckActive = () => {
-        if (!mobileOperationsQuery.matches || !operationsSection) {
-          return false;
-        }
-
-        const rect = operationsSection.getBoundingClientRect();
-        return rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.35;
-      };
-
-      const handleOperationsStep = (direction) => {
-        const goingDown = direction > 0;
-        const goingUp = direction < 0;
-        const canGoDown = goingDown && activeOperationIndex < operationSlides.length - 1;
-        const canGoUp = goingUp && activeOperationIndex > 0;
-
-        if (canGoDown || canGoUp) {
-          setOperationSlide(activeOperationIndex + (canGoDown ? 1 : -1));
-          return true;
-        }
-
-        return false;
-      };
-
       operationSlides.forEach((slide, slideIndex) => {
         const activateSlide = () => {
-          if (mobileOperationsQuery.matches && slideIndex === activeOperationIndex) {
-            nextOperationSlide();
+          setOperationSlide(slideIndex);
+
+          if (mobileOperationsQuery.matches) {
+            slide.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "center"
+            });
             return;
           }
-
-          setOperationSlide(slideIndex);
         };
 
         slide.addEventListener("click", activateSlide);
@@ -456,88 +423,26 @@
         });
       });
 
-      operationsSlider.addEventListener("wheel", (event) => {
-        if (!isOperationsDeckActive() || wheelIsLocked) {
+      operationsSlider.addEventListener("scroll", () => {
+        if (!mobileOperationsQuery.matches) {
           return;
         }
 
-        const direction = event.deltaY > 8 ? 1 : event.deltaY < -8 ? -1 : 0;
+        let closestIndex = 0;
+        let closestDistance = Number.POSITIVE_INFINITY;
 
-        if (direction !== 0 && handleOperationsStep(direction)) {
-          event.preventDefault();
-          wheelIsLocked = true;
+        operationSlides.forEach((slide, slideIndex) => {
+          const distance = Math.abs(slide.offsetLeft - operationsSlider.scrollLeft);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = slideIndex;
+          }
+        });
+
+        if (closestIndex !== activeOperationIndex) {
+          setOperationSlide(closestIndex);
         }
-
-        if (wheelIsLocked) {
-          window.setTimeout(() => {
-            wheelIsLocked = false;
-          }, 520);
-        }
-      }, { passive: false });
-
-      window.addEventListener("wheel", (event) => {
-        if (!isOperationsDeckActive() || wheelIsLocked) {
-          return;
-        }
-
-        const direction = event.deltaY > 8 ? 1 : event.deltaY < -8 ? -1 : 0;
-
-        if (direction !== 0 && handleOperationsStep(direction)) {
-          event.preventDefault();
-          wheelIsLocked = true;
-          window.setTimeout(() => {
-            wheelIsLocked = false;
-          }, 520);
-        }
-      }, { passive: false });
-
-      operationsSlider.addEventListener("touchstart", (event) => {
-        touchStartY = event.touches[0].clientY;
-        touchIsLocked = false;
-      }, { passive: true });
-
-      operationsSlider.addEventListener("touchmove", (event) => {
-        if (!isOperationsDeckActive()) {
-          return;
-        }
-
-        const touchCurrentY = event.touches[0].clientY;
-        const swipeDistance = touchStartY - touchCurrentY;
-        const direction = swipeDistance > 18 ? 1 : swipeDistance < -18 ? -1 : 0;
-
-        if (direction !== 0 && handleOperationsStep(direction)) {
-          event.preventDefault();
-          touchIsLocked = true;
-          document.body.classList.add("operations-scroll-lock");
-          touchStartY = touchCurrentY;
-        }
-      }, { passive: false });
-
-      window.addEventListener("touchstart", (event) => {
-        touchStartY = event.touches[0].clientY;
-        touchIsLocked = false;
-      }, { passive: true });
-
-      window.addEventListener("touchmove", (event) => {
-        if (!isOperationsDeckActive() || touchIsLocked) {
-          return;
-        }
-
-        const touchCurrentY = event.touches[0].clientY;
-        const swipeDistance = touchStartY - touchCurrentY;
-        const direction = swipeDistance > 18 ? 1 : swipeDistance < -18 ? -1 : 0;
-
-        if (direction !== 0 && handleOperationsStep(direction)) {
-          event.preventDefault();
-          touchIsLocked = true;
-          document.body.classList.add("operations-scroll-lock");
-          touchStartY = touchCurrentY;
-        }
-      }, { passive: false });
-
-      operationsSlider.addEventListener("touchend", () => {
-        touchIsLocked = false;
-        document.body.classList.remove("operations-scroll-lock");
       }, { passive: true });
 
       setOperationSlide(0);
