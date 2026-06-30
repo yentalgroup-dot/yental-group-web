@@ -334,7 +334,7 @@
               ></textarea>
             </label>
             <button class="button primary" type="submit">Enviar solicitud B2B</button>
-            <p class="form-status" id="contact-form-status" role="status" aria-live="polite" hidden></p>
+            <p class="form-status" id="contact-form-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
           </form>
         </div>
       </section>
@@ -364,6 +364,18 @@
       const contactForm = document.querySelector("#contact-form");
       const contactFormStatus = document.querySelector("#contact-form-status");
 
+      const setFormStatus = (type, title, message) => {
+        contactFormStatus.hidden = false;
+        contactFormStatus.className = `form-status ${type}`;
+        contactFormStatus.innerHTML = `
+          <span class="form-status-mark" aria-hidden="true"></span>
+          <span class="form-status-copy">
+            <strong>${title}</strong>
+            <span>${message}</span>
+          </span>
+        `;
+      };
+
       contactForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -373,9 +385,7 @@
 
         submitButton.disabled = true;
         submitButton.textContent = "Enviando...";
-        contactFormStatus.hidden = false;
-        contactFormStatus.className = "form-status";
-        contactFormStatus.textContent = "Estamos enviando tu solicitud.";
+        setFormStatus("is-loading", "Enviando solicitud", "Estamos preparando el envío de tu consulta.");
 
         try {
           const response = await fetch(contactForm.action, {
@@ -391,11 +401,11 @@
           }
 
           contactForm.reset();
-          contactFormStatus.className = "form-status is-success";
-          contactFormStatus.textContent = "Solicitud enviada correctamente. Gracias, te contactaremos pronto.";
+          setFormStatus("is-success", "Solicitud enviada", "Gracias. Hemos recibido tu consulta y te contactaremos pronto.");
+          contactFormStatus.focus();
         } catch (error) {
-          contactFormStatus.className = "form-status is-error";
-          contactFormStatus.textContent = "No se pudo enviar la solicitud. Escríbenos directamente a info@yentalgroup.com.";
+          setFormStatus("is-error", "No se pudo enviar", "Por favor, escríbenos directamente a info@yentalgroup.com.");
+          contactFormStatus.focus();
         } finally {
           submitButton.disabled = false;
           submitButton.textContent = originalButtonText;
