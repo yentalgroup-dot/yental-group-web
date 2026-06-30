@@ -279,6 +279,9 @@ h3 {
   align-items: stretch;
   padding: 124px clamp(22px, 3vw, 58px) 48px;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(85, 104, 255, 0.38), transparent 34%),
+    linear-gradient(135deg, var(--color-navy) 0%, #25215f 48%, var(--color-blue) 100%);
 }
 
 .home-banner-video,
