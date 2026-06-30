@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 223.3 95.26">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #1c1a1b;
+      }
+
+      .cls-2 {
+        font-family: Outfit-Black, Outfit;
+        font-size: 26.89px;
+        font-weight: 800;
+      }
+
+      .cls-3 {
+        letter-spacing: .02em;
+      }
+
+      .cls-4 {
+        fill: #5367ff;
+      }
+
+      .cls-5 {
+        letter-spacing: .04em;
+      }
+
+      .cls-6 {
+        letter-spacing: .03em;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <text class="cls-2" transform="translate(58.26 89.18)"><tspan class="cls-5" x="0" y="0">G</tspan><tspan class="cls-6" x="22.51" y="0">R</tspan><tspan class="cls-5" x="41.41" y="0">OU</tspan><tspan class="cls-3" x="84.76" y="0">P</tspan></text>
+      <g>
+        <path class="cls-1" d="M14.35,42.71L0,17.98h12.18l10.86,20.18h-9.11l10.86-20.18h11.92l-14.46,24.73h-7.89ZM13.13,55.69v-16.84h10.59v16.84h-10.59Z"/>
+        <path class="cls-1" d="M39.56,55.69V17.98h10.59v37.71h-10.59ZM48.14,26.77v-8.79h19.91v8.79h-19.91ZM48.14,40.75v-8.58h18.27v8.58h-18.27ZM48.14,55.69v-8.79h20.23v8.79h-20.23Z"/>
+        <path class="cls-1" d="M153.87,55.69l14.35-37.71h10.8l14.19,37.71h-11.02l-10.54-32.04h3.81l-10.8,32.04h-10.8ZM163.19,49.33v-8.26h21.08v8.26h-21.08Z"/>
+        <path class="cls-1" d="M197.04,55.69V17.98h10.59v37.71h-10.59ZM205.67,55.69v-9h17.63v9h-17.63Z"/>
+        <polygon class="cls-4" points="111.08 11.78 103.11 37.12 99.3 24.96 93.59 42.5 97.89 55.69 109.32 55.69 123.84 11.78 111.08 11.78"/>
+        <polygon class="cls-4" points="104.62 11.78 122.81 0 129.12 11.78 104.62 11.78"/>
+        <polygon class="cls-1" points="71.73 55.69 83.93 18.21 96.77 18.21 84.57 55.69 71.73 55.69"/>
+        <polygon class="cls-1" points="161.45 17.98 146.43 18.09 135.84 18.09 127.12 18.09 124.56 27.1 136.56 27.1 125.16 55.69 135.75 55.69 147.16 27.1 157.77 27.1 161.45 17.98"/>
+      </g>
+    </g>
+  </g>
+</svg>

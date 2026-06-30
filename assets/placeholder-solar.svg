@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-label="Imagen pendiente: energia solar">
+  <rect width="960" height="600" fill="#f7f8ff"/>
+  <circle cx="760" cy="128" r="64" fill="#5568ff"/>
+  <g transform="translate(108 220) skewX(-14)">
+    <rect width="640" height="230" rx="8" fill="#15151a"/>
+    <g stroke="#5568ff" stroke-width="8">
+      <path d="M0 58h640M0 116h640M0 174h640"/>
+      <path d="M128 0v230M256 0v230M384 0v230M512 0v230"/>
+    </g>
+  </g>
+  <text x="70" y="92" fill="#15151a" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700">Imagen: paneles solares / baterias</text>
+</svg>

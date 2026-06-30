@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-label="Imagen pendiente: contenedores y logistica">
+  <rect width="960" height="600" fill="#5568ff"/>
+  <rect x="80" y="250" width="800" height="210" rx="10" fill="#15151a"/>
+  <g fill="none" stroke="#ffffff" stroke-width="8" opacity=".72">
+    <path d="M120 285h720M120 330h720M120 375h720M120 420h720"/>
+    <path d="M180 255v200M300 255v200M420 255v200M540 255v200M660 255v200M780 255v200"/>
+  </g>
+  <path d="M122 185h550l70 65H80l42-65z" fill="#ffffff" opacity=".94"/>
+  <text x="80" y="92" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700">Imagen: contenedores / puerto</text>
+</svg>
