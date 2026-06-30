@@ -34,10 +34,16 @@
 
     <main id="inicio">
       <section class="home-banner">
-        <video class="home-banner-video" autoplay muted loop playsinline poster="assets/hero-yental.jpg">
-          <source src="assets/hero-video-mobile.mp4" type="video/mp4" media="(max-width: 620px)">
-          <source src="assets/hero-video.mp4" type="video/mp4">
-        </video>
+        <video
+          class="home-banner-video"
+          src="assets/hero-video.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="assets/hero-yental.jpg"
+        ></video>
         <div class="home-banner-overlay"></div>
         <div class="home-banner-content">
           <div class="home-banner-text-block">
@@ -333,6 +339,42 @@
           menuToggle.setAttribute("aria-expanded", "false");
         });
       });
+
+      const homeVideo = document.querySelector(".home-banner-video");
+      const mobileVideoQuery = window.matchMedia("(max-width: 620px)");
+
+      const playHomeVideo = () => {
+        if (!homeVideo) {
+          return;
+        }
+
+        homeVideo.muted = true;
+        homeVideo.loop = true;
+        homeVideo.autoplay = true;
+        homeVideo.playsInline = true;
+
+        const videoSource = mobileVideoQuery.matches
+          ? "assets/hero-video-mobile.mp4"
+          : "assets/hero-video.mp4";
+
+        if (!homeVideo.getAttribute("src")?.includes(videoSource)) {
+          homeVideo.setAttribute("src", videoSource);
+          homeVideo.load();
+        }
+
+        const playAttempt = homeVideo.play();
+
+        if (playAttempt !== undefined) {
+          playAttempt.catch(() => {
+            document.addEventListener("touchstart", () => homeVideo.play(), { once: true });
+            document.addEventListener("click", () => homeVideo.play(), { once: true });
+          });
+        }
+      };
+
+      playHomeVideo();
+      mobileVideoQuery.addEventListener("change", playHomeVideo);
+      window.addEventListener("pageshow", playHomeVideo);
 
       const operationSlides = document.querySelectorAll(".operations-slide");
       const operationsSlider = document.querySelector(".operations-slider");
