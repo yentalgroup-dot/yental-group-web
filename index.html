@@ -382,6 +382,7 @@
 
       const operationSlides = document.querySelectorAll(".operations-slide");
       const operationsSlider = document.querySelector(".operations-slider");
+      const operationsSection = document.querySelector(".operations-section");
       const mobileOperationsQuery = window.matchMedia("(max-width: 620px)");
       let activeOperationIndex = 0;
       let wheelIsLocked = false;
@@ -413,6 +414,29 @@
         setOperationSlide(previousIndex);
       };
 
+      const isOperationsDeckActive = () => {
+        if (!mobileOperationsQuery.matches || !operationsSection) {
+          return false;
+        }
+
+        const rect = operationsSection.getBoundingClientRect();
+        return rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.35;
+      };
+
+      const handleOperationsStep = (direction) => {
+        const goingDown = direction > 0;
+        const goingUp = direction < 0;
+        const canGoDown = goingDown && activeOperationIndex < operationSlides.length - 1;
+        const canGoUp = goingUp && activeOperationIndex > 0;
+
+        if (canGoDown || canGoUp) {
+          setOperationSlide(activeOperationIndex + (canGoDown ? 1 : -1));
+          return true;
+        }
+
+        return false;
+      };
+
       operationSlides.forEach((slide, slideIndex) => {
         const activateSlide = () => {
           if (mobileOperationsQuery.matches && slideIndex === activeOperationIndex) {
@@ -433,22 +457,34 @@
       });
 
       operationsSlider.addEventListener("wheel", (event) => {
-        if (!mobileOperationsQuery.matches || wheelIsLocked) {
+        if (!isOperationsDeckActive() || wheelIsLocked) {
           return;
         }
 
-        const goingDown = event.deltaY > 8;
-        const goingUp = event.deltaY < -8;
-        const canGoDown = goingDown && activeOperationIndex < operationSlides.length - 1;
-        const canGoUp = goingUp && activeOperationIndex > 0;
+        const direction = event.deltaY > 8 ? 1 : event.deltaY < -8 ? -1 : 0;
 
-        if (canGoDown || canGoUp) {
+        if (direction !== 0 && handleOperationsStep(direction)) {
           event.preventDefault();
           wheelIsLocked = true;
-          setOperationSlide(activeOperationIndex + (canGoDown ? 1 : -1));
         }
 
         if (wheelIsLocked) {
+          window.setTimeout(() => {
+            wheelIsLocked = false;
+          }, 520);
+        }
+      }, { passive: false });
+
+      window.addEventListener("wheel", (event) => {
+        if (!isOperationsDeckActive() || wheelIsLocked) {
+          return;
+        }
+
+        const direction = event.deltaY > 8 ? 1 : event.deltaY < -8 ? -1 : 0;
+
+        if (direction !== 0 && handleOperationsStep(direction)) {
+          event.preventDefault();
+          wheelIsLocked = true;
           window.setTimeout(() => {
             wheelIsLocked = false;
           }, 520);
@@ -461,25 +497,40 @@
       }, { passive: true });
 
       operationsSlider.addEventListener("touchmove", (event) => {
-        if (!mobileOperationsQuery.matches) {
+        if (!isOperationsDeckActive()) {
           return;
         }
 
         const touchCurrentY = event.touches[0].clientY;
         const swipeDistance = touchStartY - touchCurrentY;
-        const goingDown = swipeDistance > 24;
-        const goingUp = swipeDistance < -24;
-        const canGoDown = goingDown && activeOperationIndex < operationSlides.length - 1;
-        const canGoUp = goingUp && activeOperationIndex > 0;
+        const direction = swipeDistance > 18 ? 1 : swipeDistance < -18 ? -1 : 0;
 
-        if (canGoDown || canGoUp) {
+        if (direction !== 0 && handleOperationsStep(direction)) {
           event.preventDefault();
-        }
-
-        if (!touchIsLocked && (canGoDown || canGoUp)) {
           touchIsLocked = true;
           document.body.classList.add("operations-scroll-lock");
-          setOperationSlide(activeOperationIndex + (canGoDown ? 1 : -1));
+          touchStartY = touchCurrentY;
+        }
+      }, { passive: false });
+
+      window.addEventListener("touchstart", (event) => {
+        touchStartY = event.touches[0].clientY;
+        touchIsLocked = false;
+      }, { passive: true });
+
+      window.addEventListener("touchmove", (event) => {
+        if (!isOperationsDeckActive() || touchIsLocked) {
+          return;
+        }
+
+        const touchCurrentY = event.touches[0].clientY;
+        const swipeDistance = touchStartY - touchCurrentY;
+        const direction = swipeDistance > 18 ? 1 : swipeDistance < -18 ? -1 : 0;
+
+        if (direction !== 0 && handleOperationsStep(direction)) {
+          event.preventDefault();
+          touchIsLocked = true;
+          document.body.classList.add("operations-scroll-lock");
           touchStartY = touchCurrentY;
         }
       }, { passive: false });
