@@ -24,13 +24,30 @@
         <span></span>
       </button>
       <nav class="nav" id="primary-nav" aria-label="Navegación principal">
-        <a href="#que-hacemos" data-index="01">Qué hacemos</a>
-        <a href="#operaciones" data-index="02">Operaciones</a>
-        <a href="#servicios" data-index="03">Servicios</a>
-        <a href="#sectores" data-index="04">Sectores</a>
-        <a href="#empresa" data-index="05">Empresa</a>
-        <a href="#proceso" data-index="06">Proceso</a>
-        <a href="#contacto" data-index="07">Contacto</a>
+        <a href="#que-hacemos" data-index="01" data-i18n="nav.what">Qué hacemos</a>
+        <a href="#operaciones" data-index="02" data-i18n="nav.operations">Operaciones</a>
+        <a href="#servicios" data-index="03" data-i18n="nav.services">Servicios</a>
+        <a href="#sectores" data-index="04" data-i18n="nav.sectors">Sectores</a>
+        <a href="#empresa" data-index="05" data-i18n="nav.company">Empresa</a>
+        <a href="#proceso" data-index="06" data-i18n="nav.process">Proceso</a>
+        <a href="#contacto" data-index="07" data-i18n="nav.contact">Contacto</a>
+        <div class="language-selector" data-lang-selector>
+          <button class="language-toggle" type="button" aria-label="Cambiar idioma" aria-expanded="false" data-lang-toggle>
+            <span class="language-flag is-es" data-lang-flag aria-hidden="true"></span>
+            <span data-lang-current>ES</span>
+            <span class="language-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="language-menu" role="menu">
+            <button type="button" role="menuitem" data-lang-option="es">
+              <span class="language-flag is-es" aria-hidden="true"></span>
+              <span>Español</span>
+            </button>
+            <button type="button" role="menuitem" data-lang-option="en">
+              <img class="language-flag-image" src="assets/flag-en.svg" alt="" aria-hidden="true">
+              <span>English</span>
+            </button>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -63,9 +80,9 @@
         <div class="home-banner-overlay"></div>
         <div class="home-banner-content">
           <div class="home-banner-text-block">
-            <p class="section-kicker home-banner-kicker">Exportación B2B autorizada | España - Caribe</p>
-            <h1 class="home-banner-title">Suministros mayoristas de calidad para empresas en el Caribe.</h1>
-            <p class="home-banner-paragraph">
+            <p class="section-kicker home-banner-kicker" data-i18n="hero.kicker">Exportación B2B autorizada | España - Caribe</p>
+            <h1 class="home-banner-title" data-i18n="hero.title">Suministros mayoristas de calidad para empresas en el Caribe.</h1>
+            <p class="home-banner-paragraph" data-i18n="hero.text">
               Gestionamos exportaciones a Cuba y el Caribe para pymes y empresas que necesitan productos fiables,
               marcas reconocidas y una logística clara de principio a fin.
             </p>
@@ -76,10 +93,10 @@
       <section id="que-hacemos" class="about-section">
         <div class="section-inner about-layout">
           <div class="about-heading">
-            <p class="section-kicker">Lo que hacemos</p>
-            <h2 class="about-title">Exportamos productos fiables para empresas que priorizan calidad, garantía y precio competitivo.</h2>
+            <p class="section-kicker" data-i18n="about.kicker">Lo que hacemos</p>
+            <h2 class="about-title" data-i18n="about.title">Exportamos productos fiables para empresas que priorizan calidad, garantía y precio competitivo.</h2>
           </div>
-          <p class="about-text">
+          <p class="about-text" data-i18n="about.text">
             Yental Group SL trabaja como socio de abastecimiento para operaciones mayoristas. Cotizamos,
             seleccionamos y coordinamos productos de distintos rubros con un criterio claro: marcas confiables,
             calidad comprobada y precios competitivos para operaciones B2B. Contamos con autorización para exportar
@@ -92,10 +109,10 @@
         <div class="section-inner">
           <div class="operations-layout">
             <div class="operations-heading">
-              <p class="section-kicker">Operación internacional</p>
-              <h2 class="operations-title">Operaciones pensadas para volumen, trazabilidad y continuidad.</h2>
+              <p class="section-kicker" data-i18n="operations.kicker">Operación internacional</p>
+              <h2 class="operations-title" data-i18n="operations.title">Operaciones pensadas para volumen, trazabilidad y continuidad.</h2>
             </div>
-            <p class="operations-text">
+            <p class="operations-text" data-i18n="operations.text">
               Trabajamos con solicitudes de empresas, pymes, grupos comerciales y proyectos que requieren comprar
               en cantidad. La operación puede incluir búsqueda de proveedores, selección de producto, cotización,
               coordinación de carga y seguimiento hasta destino.
@@ -106,9 +123,9 @@
             <article class="operations-slide is-active" role="button" tabindex="0" aria-expanded="true">
               <span class="operations-slide-number">01</span>
               <div class="operations-slide-content">
-                <p class="operations-slide-kicker">Abastecimiento B2B</p>
-                <h3>Búsqueda y selección de producto.</h3>
-                <p>
+                <p class="operations-slide-kicker" data-i18n="op1.kicker">Abastecimiento B2B</p>
+                <h3 data-i18n="op1.title">Búsqueda y selección de producto.</h3>
+                <p data-i18n="op1.text">
                   Filtramos proveedores, marcas y disponibilidad real antes de cotizar.
                 </p>
               </div>
@@ -117,9 +134,9 @@
             <article class="operations-slide" role="button" tabindex="0" aria-expanded="false">
               <span class="operations-slide-number">02</span>
               <div class="operations-slide-content">
-                <p class="operations-slide-kicker">Operación mayorista</p>
-                <h3>Cotización por volumen.</h3>
-                <p>
+                <p class="operations-slide-kicker" data-i18n="op2.kicker">Operación mayorista</p>
+                <h3 data-i18n="op2.title">Cotización por volumen.</h3>
+                <p data-i18n="op2.text">
                   Preparamos propuestas B2B con precio, plazo y condiciones claras.
                 </p>
               </div>
@@ -128,9 +145,9 @@
             <article class="operations-slide" role="button" tabindex="0" aria-expanded="false">
               <span class="operations-slide-number">03</span>
               <div class="operations-slide-content">
-                <p class="operations-slide-kicker">Logística internacional</p>
-                <h3>Preparación y seguimiento de carga.</h3>
-                <p>
+                <p class="operations-slide-kicker" data-i18n="op3.kicker">Logística internacional</p>
+                <h3 data-i18n="op3.title">Preparación y seguimiento de carga.</h3>
+                <p data-i18n="op3.text">
                   Coordinamos documentación, preparación de mercancía y seguimiento operativo hasta destino.
                 </p>
               </div>
@@ -139,9 +156,9 @@
             <article class="operations-slide" role="button" tabindex="0" aria-expanded="false">
               <span class="operations-slide-number">04</span>
               <div class="operations-slide-content">
-                <p class="operations-slide-kicker">Logística integral</p>
-                <h3>Coordinación hasta destino.</h3>
-                <p>
+                <p class="operations-slide-kicker" data-i18n="op4.kicker">Logística integral</p>
+                <h3 data-i18n="op4.title">Coordinación hasta destino.</h3>
+                <p data-i18n="op4.text">
                   Seguimiento comercial, documental y logístico hasta destino.
                 </p>
               </div>
@@ -153,29 +170,29 @@
       <section id="servicios" class="services-section">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="section-kicker">Servicios</p>
-            <h2>Abastecimiento mayorista con criterio de calidad.</h2>
+            <p class="section-kicker" data-i18n="services.kicker">Servicios</p>
+            <h2 data-i18n="services.title">Abastecimiento mayorista con criterio de calidad.</h2>
           </div>
           <div class="service-grid">
             <article class="service-card">
               <span class="icon">01</span>
-              <h3>Cotización mayorista</h3>
-              <p>Recibimos solicitudes por volumen y cotizamos productos según calidad, marca, plazo y viabilidad logística.</p>
+              <h3 data-i18n="service1.title">Cotización mayorista</h3>
+              <p data-i18n="service1.text">Recibimos solicitudes por volumen y cotizamos productos según calidad, marca, plazo y viabilidad logística.</p>
             </article>
             <article class="service-card">
               <span class="icon">02</span>
-              <h3>Productos de primera calidad</h3>
-              <p>Priorizamos producto europeo, marcas reconocidas y alternativas de origen asiático solo cuando ofrecen garantía y respaldo.</p>
+              <h3 data-i18n="service2.title">Productos de primera calidad</h3>
+              <p data-i18n="service2.text">Priorizamos producto europeo, marcas reconocidas y alternativas de origen asiático solo cuando ofrecen garantía y respaldo.</p>
             </article>
             <article class="service-card">
               <span class="icon">03</span>
-              <h3>Logística integral</h3>
-              <p>Nos encargamos de coordinar compra, preparación, documentación, carga y seguimiento de la exportación.</p>
+              <h3 data-i18n="service3.title">Logística integral</h3>
+              <p data-i18n="service3.text">Nos encargamos de coordinar compra, preparación, documentación, carga y seguimiento de la exportación.</p>
             </article>
             <article class="service-card">
               <span class="icon">04</span>
-              <h3>Soluciones B2B a medida</h3>
-              <p>No vendemos a cliente final: trabajamos con empresas, pymes y compradores profesionales.</p>
+              <h3 data-i18n="service4.title">Soluciones B2B a medida</h3>
+              <p data-i18n="service4.text">No vendemos a cliente final: trabajamos con empresas, pymes y compradores profesionales.</p>
             </article>
           </div>
         </div>
@@ -184,35 +201,35 @@
       <section id="sectores" class="sectors-section">
         <div class="section-inner sectors-layout">
           <div class="section-heading compact">
-            <p class="section-kicker">Rubros de trabajo</p>
-            <h2>Una red de suministro para necesidades reales de empresa.</h2>
+            <p class="section-kicker" data-i18n="sectors.kicker">Rubros de trabajo</p>
+            <h2 data-i18n="sectors.title">Una red de suministro para necesidades reales de empresa.</h2>
           </div>
           <div class="sector-list">
             <div>
-              <h3>Construcción</h3>
-              <p>
+              <h3 data-i18n="sector1.title">Construcción</h3>
+              <p data-i18n="sector1.text">
                 Materiales, acabados, herramientas, equipos y suministros para obras, reformas, mantenimiento
                 e instalaciones comerciales. También podemos asesorar en la búsqueda de empresas que ejecuten
                 mano de obra una vez en destino.
               </p>
             </div>
             <div>
-              <h3>Energía renovable</h3>
-              <p>
+              <h3 data-i18n="sector2.title">Energía renovable</h3>
+              <p data-i18n="sector2.text">
                 Paneles solares, inversores, baterías y componentes orientados a soluciones de uso cotidiano,
                 respaldo eléctrico y eficiencia energética.
               </p>
             </div>
             <div>
-              <h3>Vehículos y movilidad</h3>
-              <p>
+              <h3 data-i18n="sector3.title">Vehículos y movilidad</h3>
+              <p data-i18n="sector3.text">
                 Experiencia acumulada en operaciones de importación de vehículos a través del ecosistema ATR Export,
                 con enfoque en procesos comerciales, documentales y logísticos.
               </p>
             </div>
             <div>
-              <h3>Suministros para pymes</h3>
-              <p>
+              <h3 data-i18n="sector4.title">Suministros para pymes</h3>
+              <p data-i18n="sector4.text">
                 Equipamiento, repuestos, herramientas, mobiliario, tecnología, maquinaria ligera y cualquier rubro
                 que una empresa necesite para operar, ampliar o modernizar su negocio.
               </p>
@@ -224,13 +241,13 @@
       <section id="empresa" class="company-section">
         <div class="section-inner company-layout">
           <div>
-            <p class="section-kicker">Trayectoria</p>
-            <h2>Experiencia comercial aplicada a operaciones de exportación.</h2>
-            <p>
+            <p class="section-kicker" data-i18n="company.kicker">Trayectoria</p>
+            <h2 data-i18n="company.title">Experiencia comercial aplicada a operaciones de exportación.</h2>
+            <p data-i18n="company.text1">
               Yental Group SL forma parte del desarrollo empresarial de ATR Export, una compañía con trayectoria
               sostenida en el sector vehicular y más de cuatro años de actividad comercial.
             </p>
-            <p>
+            <p data-i18n="company.text2">
               Esa experiencia nos permite ampliar el alcance hacia una propuesta más completa: abastecimiento
               mayorista, selección de productos, exportación autorizada a Cuba y soluciones para empresas que
               necesitan operar con proveedores serios y mercancía confiable.
@@ -239,15 +256,15 @@
           <div class="stats-panel" aria-label="Datos destacados">
             <div>
               <strong>B2B</strong>
-              <span>Operación orientada a empresas, pymes y compradores profesionales</span>
+              <span data-i18n="stat1.text">Operación orientada a empresas, pymes y compradores profesionales</span>
             </div>
             <div>
               <strong>+4</strong>
-              <span>Años de experiencia comercial vinculada a ATR Export</span>
+              <span data-i18n="stat2.text">Años de experiencia comercial vinculada a ATR Export</span>
             </div>
             <div>
               <strong>+2M EUR</strong>
-              <span>Facturación acumulada en operaciones del ecosistema ATR Export</span>
+              <span data-i18n="stat3.text">Facturación acumulada en operaciones del ecosistema ATR Export</span>
             </div>
           </div>
         </div>
@@ -256,24 +273,24 @@
       <section id="proceso" class="process-section">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="section-kicker">Cómo trabajamos</p>
-            <h2>Un proceso claro para compras por volumen.</h2>
+            <p class="section-kicker" data-i18n="process.kicker">Cómo trabajamos</p>
+            <h2 data-i18n="process.title">Un proceso claro para compras por volumen.</h2>
           </div>
           <ol class="steps">
             <li>
               <span>1</span>
-              <h3>Solicitud B2B</h3>
-              <p>Recibimos producto, cantidades, especificaciones, marca deseada, destino y prioridad.</p>
+              <h3 data-i18n="step1.title">Solicitud B2B</h3>
+              <p data-i18n="step1.text">Recibimos producto, cantidades, especificaciones, marca deseada, destino y prioridad.</p>
             </li>
             <li>
               <span>2</span>
-              <h3>Selección y cotización</h3>
-              <p>Buscamos opciones de calidad, comparamos marcas, garantías, disponibilidad y costos logísticos.</p>
+              <h3 data-i18n="step2.title">Selección y cotización</h3>
+              <p data-i18n="step2.text">Buscamos opciones de calidad, comparamos marcas, garantías, disponibilidad y costos logísticos.</p>
             </li>
             <li>
               <span>3</span>
-              <h3>Exportación y seguimiento</h3>
-              <p>Coordinamos la operación comercial, documental y logística hasta completar el proceso.</p>
+              <h3 data-i18n="step3.title">Exportación y seguimiento</h3>
+              <p data-i18n="step3.text">Coordinamos la operación comercial, documental y logística hasta completar el proceso.</p>
             </li>
           </ol>
         </div>
@@ -282,9 +299,9 @@
       <section id="contacto" class="contact-section">
         <div class="section-inner contact-grid">
           <div>
-            <p class="section-kicker">Contacto comercial</p>
-            <h2>Cuéntanos qué necesita abastecer tu empresa.</h2>
-            <p>
+            <p class="section-kicker" data-i18n="contact.kicker">Contacto comercial</p>
+            <h2 data-i18n="contact.title">Cuéntanos qué necesita abastecer tu empresa.</h2>
+            <p data-i18n="contact.text">
               Envía una solicitud con el rubro, cantidades aproximadas, especificaciones técnicas, destino y plazo
               estimado. Nuestro equipo revisará la viabilidad y preparará los siguientes pasos para una cotización
               mayorista.
@@ -302,38 +319,39 @@
             <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <label>
-                Nombre
-                <input type="text" name="Nombre" placeholder="Nombre y apellido" required>
+                <span data-i18n="form.name">Nombre</span>
+                <input type="text" name="Nombre" placeholder="Nombre y apellido" data-i18n-placeholder="form.namePlaceholder" required>
               </label>
               <label>
-                Empresa
-                <input type="text" name="Empresa" placeholder="Nombre de la empresa">
+                <span data-i18n="form.company">Empresa</span>
+                <input type="text" name="Empresa" placeholder="Nombre de la empresa" data-i18n-placeholder="form.companyPlaceholder">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Correo electrónico
-                <input type="email" name="email" placeholder="correo@empresa.com" required>
+                <span data-i18n="form.email">Correo electrónico</span>
+                <input type="email" name="email" placeholder="correo@empresa.com" data-i18n-placeholder="form.emailPlaceholder" required>
               </label>
               <label>
-                Teléfono
-                <input type="tel" name="Telefono" placeholder="+34 000 000 000">
+                <span data-i18n="form.phone">Teléfono</span>
+                <input type="tel" name="Telefono" placeholder="+34 000 000 000" data-i18n-placeholder="form.phonePlaceholder">
               </label>
             </div>
             <label>
-              Rubro o producto
-              <input type="text" name="Rubro o producto" placeholder="Construcción, energía solar, vehículos...">
+              <span data-i18n="form.product">Rubro o producto</span>
+              <input type="text" name="Rubro o producto" placeholder="Construcción, energía solar, vehículos..." data-i18n-placeholder="form.productPlaceholder">
             </label>
             <label>
-              Detalles de la solicitud
+              <span data-i18n="form.details">Detalles de la solicitud</span>
               <textarea
                 name="Detalles"
                 rows="5"
                 placeholder="Cantidades aproximadas, destino, marcas deseadas, plazo estimado..."
+                data-i18n-placeholder="form.detailsPlaceholder"
                 required
               ></textarea>
             </label>
-            <button class="button primary" type="submit">Enviar solicitud B2B</button>
+            <button class="button primary" type="submit" data-i18n="form.submit">Enviar solicitud B2B</button>
             <p class="form-status" id="contact-form-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
           </form>
         </div>
@@ -342,22 +360,282 @@
 
     <footer class="site-footer">
       <img src="assets/logo-color.svg" alt="Yental Group">
-      <span>Exportación B2B hacia Cuba y el Caribe</span>
+      <span data-i18n="footer.text">Exportación B2B hacia Cuba y el Caribe</span>
       <a href="mailto:info@yentalgroup.com">info@yentalgroup.com</a>
     </footer>
     <script>
       const menuToggle = document.querySelector(".menu-toggle");
       const nav = document.querySelector("#primary-nav");
+      const languageSelector = document.querySelector("[data-lang-selector]");
+      const languageToggle = document.querySelector("[data-lang-toggle]");
+      const languageCurrent = document.querySelector("[data-lang-current]");
+      const languageFlag = document.querySelector("[data-lang-flag]");
+      const languageOptions = document.querySelectorAll("[data-lang-option]");
+      const metaDescription = document.querySelector("meta[name='description']");
+      const contactSubject = document.querySelector("input[name='_subject']");
+
+      const translations = {
+        es: {
+          "meta.title": "Yental Group SL | Exportación B2B al Caribe",
+          "meta.description": "Yental Group SL gestiona exportaciones B2B al Caribe con productos europeos y marcas de primera calidad, logística integral y soluciones para pymes, construcción, vehículos y energía renovable.",
+          "nav.what": "Qué hacemos",
+          "nav.operations": "Operaciones",
+          "nav.services": "Servicios",
+          "nav.sectors": "Sectores",
+          "nav.company": "Empresa",
+          "nav.process": "Proceso",
+          "nav.contact": "Contacto",
+          "hero.kicker": "Exportación B2B autorizada | España - Caribe",
+          "hero.title": "Suministros mayoristas de calidad para empresas en el Caribe.",
+          "hero.text": "Gestionamos exportaciones a Cuba y el Caribe para pymes y empresas que necesitan productos fiables, marcas reconocidas y una logística clara de principio a fin.",
+          "about.kicker": "Lo que hacemos",
+          "about.title": "Exportamos productos fiables para empresas que priorizan calidad, garantía y precio competitivo.",
+          "about.text": "Yental Group SL trabaja como socio de abastecimiento para operaciones mayoristas. Cotizamos, seleccionamos y coordinamos productos de distintos rubros con un criterio claro: marcas confiables, calidad comprobada y precios competitivos para operaciones B2B. Contamos con autorización para exportar a Cuba y gestionamos cada solicitud con enfoque comercial, documental y logístico.",
+          "operations.kicker": "Operación internacional",
+          "operations.title": "Operaciones pensadas para volumen, trazabilidad y continuidad.",
+          "operations.text": "Trabajamos con solicitudes de empresas, pymes, grupos comerciales y proyectos que requieren comprar en cantidad. La operación puede incluir búsqueda de proveedores, selección de producto, cotización, coordinación de carga y seguimiento hasta destino.",
+          "op1.kicker": "Abastecimiento B2B",
+          "op1.title": "Búsqueda y selección de producto.",
+          "op1.text": "Filtramos proveedores, marcas y disponibilidad real antes de cotizar.",
+          "op2.kicker": "Operación mayorista",
+          "op2.title": "Cotización por volumen.",
+          "op2.text": "Preparamos propuestas B2B con precio, plazo y condiciones claras.",
+          "op3.kicker": "Logística internacional",
+          "op3.title": "Preparación y seguimiento de carga.",
+          "op3.text": "Coordinamos documentación, preparación de mercancía y seguimiento operativo hasta destino.",
+          "op4.kicker": "Logística integral",
+          "op4.title": "Coordinación hasta destino.",
+          "op4.text": "Seguimiento comercial, documental y logístico hasta destino.",
+          "services.kicker": "Servicios",
+          "services.title": "Abastecimiento mayorista con criterio de calidad.",
+          "service1.title": "Cotización mayorista",
+          "service1.text": "Recibimos solicitudes por volumen y cotizamos productos según calidad, marca, plazo y viabilidad logística.",
+          "service2.title": "Productos de primera calidad",
+          "service2.text": "Priorizamos producto europeo, marcas reconocidas y alternativas de origen asiático solo cuando ofrecen garantía y respaldo.",
+          "service3.title": "Logística integral",
+          "service3.text": "Nos encargamos de coordinar compra, preparación, documentación, carga y seguimiento de la exportación.",
+          "service4.title": "Soluciones B2B a medida",
+          "service4.text": "No vendemos a cliente final: trabajamos con empresas, pymes y compradores profesionales.",
+          "sectors.kicker": "Rubros de trabajo",
+          "sectors.title": "Una red de suministro para necesidades reales de empresa.",
+          "sector1.title": "Construcción",
+          "sector1.text": "Materiales, acabados, herramientas, equipos y suministros para obras, reformas, mantenimiento e instalaciones comerciales. También podemos asesorar en la búsqueda de empresas que ejecuten mano de obra una vez en destino.",
+          "sector2.title": "Energía renovable",
+          "sector2.text": "Paneles solares, inversores, baterías y componentes orientados a soluciones de uso cotidiano, respaldo eléctrico y eficiencia energética.",
+          "sector3.title": "Vehículos y movilidad",
+          "sector3.text": "Experiencia acumulada en operaciones de importación de vehículos a través del ecosistema ATR Export, con enfoque en procesos comerciales, documentales y logísticos.",
+          "sector4.title": "Suministros para pymes",
+          "sector4.text": "Equipamiento, repuestos, herramientas, mobiliario, tecnología, maquinaria ligera y cualquier rubro que una empresa necesite para operar, ampliar o modernizar su negocio.",
+          "company.kicker": "Trayectoria",
+          "company.title": "Experiencia comercial aplicada a operaciones de exportación.",
+          "company.text1": "Yental Group SL forma parte del desarrollo empresarial de ATR Export, una compañía con trayectoria sostenida en el sector vehicular y más de cuatro años de actividad comercial.",
+          "company.text2": "Esa experiencia nos permite ampliar el alcance hacia una propuesta más completa: abastecimiento mayorista, selección de productos, exportación autorizada a Cuba y soluciones para empresas que necesitan operar con proveedores serios y mercancía confiable.",
+          "stat1.text": "Operación orientada a empresas, pymes y compradores profesionales",
+          "stat2.text": "Años de experiencia comercial vinculada a ATR Export",
+          "stat3.text": "Facturación acumulada en operaciones del ecosistema ATR Export",
+          "process.kicker": "Cómo trabajamos",
+          "process.title": "Un proceso claro para compras por volumen.",
+          "step1.title": "Solicitud B2B",
+          "step1.text": "Recibimos producto, cantidades, especificaciones, marca deseada, destino y prioridad.",
+          "step2.title": "Selección y cotización",
+          "step2.text": "Buscamos opciones de calidad, comparamos marcas, garantías, disponibilidad y costos logísticos.",
+          "step3.title": "Exportación y seguimiento",
+          "step3.text": "Coordinamos la operación comercial, documental y logística hasta completar el proceso.",
+          "contact.kicker": "Contacto comercial",
+          "contact.title": "Cuéntanos qué necesita abastecer tu empresa.",
+          "contact.text": "Envía una solicitud con el rubro, cantidades aproximadas, especificaciones técnicas, destino y plazo estimado. Nuestro equipo revisará la viabilidad y preparará los siguientes pasos para una cotización mayorista.",
+          "form.name": "Nombre",
+          "form.namePlaceholder": "Nombre y apellido",
+          "form.company": "Empresa",
+          "form.companyPlaceholder": "Nombre de la empresa",
+          "form.email": "Correo electrónico",
+          "form.emailPlaceholder": "correo@empresa.com",
+          "form.phone": "Teléfono",
+          "form.phonePlaceholder": "+34 000 000 000",
+          "form.product": "Rubro o producto",
+          "form.productPlaceholder": "Construcción, energía solar, vehículos...",
+          "form.details": "Detalles de la solicitud",
+          "form.detailsPlaceholder": "Cantidades aproximadas, destino, marcas deseadas, plazo estimado...",
+          "form.submit": "Enviar solicitud B2B",
+          "footer.text": "Exportación B2B hacia Cuba y el Caribe",
+          "status.loadingTitle": "Enviando solicitud",
+          "status.loadingText": "Estamos preparando el envío de tu consulta.",
+          "status.successTitle": "Solicitud enviada",
+          "status.successText": "Gracias. Hemos recibido tu consulta y te contactaremos pronto.",
+          "status.errorTitle": "No se pudo enviar",
+          "status.errorText": "Por favor, escríbenos directamente a info@yentalgroup.com.",
+          "status.sending": "Enviando...",
+          "form.subject": "Nueva solicitud B2B desde yentalgroup.com",
+          "language.label": "Cambiar idioma",
+          "menu.open": "Abrir menú",
+          "menu.close": "Cerrar menú"
+        },
+        en: {
+          "meta.title": "Yental Group SL | B2B Exports to the Caribbean",
+          "meta.description": "Yental Group SL manages B2B exports to the Caribbean with European products, premium brands, integrated logistics and supply solutions for SMEs, construction, vehicles and renewable energy.",
+          "nav.what": "What we do",
+          "nav.operations": "Operations",
+          "nav.services": "Services",
+          "nav.sectors": "Sectors",
+          "nav.company": "Company",
+          "nav.process": "Process",
+          "nav.contact": "Contact",
+          "hero.kicker": "Authorized B2B exports | Spain - Caribbean",
+          "hero.title": "Quality wholesale supplies for companies in the Caribbean.",
+          "hero.text": "We manage exports to Cuba and the Caribbean for SMEs and companies that need reliable products, recognized brands and clear logistics from start to finish.",
+          "about.kicker": "What we do",
+          "about.title": "We export reliable products for companies that prioritize quality, warranty and competitive pricing.",
+          "about.text": "Yental Group SL works as a supply partner for wholesale operations. We quote, select and coordinate products across different categories with a clear standard: trusted brands, proven quality and competitive pricing for B2B operations. We are authorized to export to Cuba and manage every request with a commercial, documentary and logistics-driven approach.",
+          "operations.kicker": "International operation",
+          "operations.title": "Operations designed for volume, traceability and continuity.",
+          "operations.text": "We work with requests from companies, SMEs, commercial groups and projects that need to purchase in volume. The operation may include supplier sourcing, product selection, quotation, cargo coordination and follow-up through destination.",
+          "op1.kicker": "B2B procurement",
+          "op1.title": "Product sourcing and selection.",
+          "op1.text": "We filter suppliers, brands and real availability before preparing a quotation.",
+          "op2.kicker": "Wholesale operation",
+          "op2.title": "Volume-based quotation.",
+          "op2.text": "We prepare B2B proposals with clear pricing, timing and conditions.",
+          "op3.kicker": "International logistics",
+          "op3.title": "Cargo preparation and follow-up.",
+          "op3.text": "We coordinate documentation, merchandise preparation and operational follow-up through destination.",
+          "op4.kicker": "Integrated logistics",
+          "op4.title": "Coordination through destination.",
+          "op4.text": "Commercial, documentary and logistics follow-up through destination.",
+          "services.kicker": "Services",
+          "services.title": "Wholesale procurement with a quality-first standard.",
+          "service1.title": "Wholesale quotation",
+          "service1.text": "We receive volume requests and quote products according to quality, brand, timing and logistics feasibility.",
+          "service2.title": "Premium-quality products",
+          "service2.text": "We prioritize European products, recognized brands and Asian-origin alternatives only when they offer warranty and solid support.",
+          "service3.title": "Integrated logistics",
+          "service3.text": "We coordinate purchase, preparation, documentation, cargo and export follow-up.",
+          "service4.title": "Tailored B2B solutions",
+          "service4.text": "We do not sell to end customers: we work with companies, SMEs and professional buyers.",
+          "sectors.kicker": "Business sectors",
+          "sectors.title": "A supply network for real business needs.",
+          "sector1.title": "Construction",
+          "sector1.text": "Materials, finishes, tools, equipment and supplies for works, renovations, maintenance and commercial installations. We can also advise on finding companies to provide labor once at destination.",
+          "sector2.title": "Renewable energy",
+          "sector2.text": "Solar panels, inverters, batteries and components for everyday-use solutions, power backup and energy efficiency.",
+          "sector3.title": "Vehicles and mobility",
+          "sector3.text": "Accumulated experience in vehicle import operations through the ATR Export ecosystem, with a focus on commercial, documentary and logistics processes.",
+          "sector4.title": "Supplies for SMEs",
+          "sector4.text": "Equipment, spare parts, tools, furniture, technology, light machinery and any category a company may need to operate, expand or modernize its business.",
+          "company.kicker": "Track record",
+          "company.title": "Commercial experience applied to export operations.",
+          "company.text1": "Yental Group SL is part of the business development of ATR Export, a company with sustained experience in the vehicle sector and more than four years of commercial activity.",
+          "company.text2": "That experience allows us to expand toward a more complete proposal: wholesale procurement, product selection, authorized exports to Cuba and solutions for companies that need to work with serious suppliers and reliable goods.",
+          "stat1.text": "Operation focused on companies, SMEs and professional buyers",
+          "stat2.text": "Years of commercial experience linked to ATR Export",
+          "stat3.text": "Accumulated turnover in ATR Export ecosystem operations",
+          "process.kicker": "How we work",
+          "process.title": "A clear process for volume purchases.",
+          "step1.title": "B2B request",
+          "step1.text": "We receive the product, quantities, specifications, preferred brand, destination and priority.",
+          "step2.title": "Selection and quotation",
+          "step2.text": "We search for quality options and compare brands, warranties, availability and logistics costs.",
+          "step3.title": "Export and follow-up",
+          "step3.text": "We coordinate the commercial, documentary and logistics operation until the process is complete.",
+          "contact.kicker": "Commercial contact",
+          "contact.title": "Tell us what your company needs to source.",
+          "contact.text": "Send a request with the category, approximate quantities, technical specifications, destination and estimated timing. Our team will review feasibility and prepare the next steps for a wholesale quotation.",
+          "form.name": "Name",
+          "form.namePlaceholder": "Full name",
+          "form.company": "Company",
+          "form.companyPlaceholder": "Company name",
+          "form.email": "Email",
+          "form.emailPlaceholder": "email@company.com",
+          "form.phone": "Phone",
+          "form.phonePlaceholder": "+34 000 000 000",
+          "form.product": "Category or product",
+          "form.productPlaceholder": "Construction, solar energy, vehicles...",
+          "form.details": "Request details",
+          "form.detailsPlaceholder": "Approximate quantities, destination, preferred brands, estimated timing...",
+          "form.submit": "Send B2B request",
+          "footer.text": "B2B exports to Cuba and the Caribbean",
+          "status.loadingTitle": "Sending request",
+          "status.loadingText": "We are preparing your inquiry for submission.",
+          "status.successTitle": "Request sent",
+          "status.successText": "Thank you. We have received your inquiry and will contact you soon.",
+          "status.errorTitle": "Could not send",
+          "status.errorText": "Please email us directly at info@yentalgroup.com.",
+          "status.sending": "Sending...",
+          "form.subject": "New B2B request from yentalgroup.com",
+          "language.label": "Switch language",
+          "menu.open": "Open menu",
+          "menu.close": "Close menu"
+        }
+      };
+
+      const getPreferredLanguage = () => {
+        const savedLanguage = localStorage.getItem("yental-language");
+        return savedLanguage === "en" ? "en" : "es";
+      };
+
+      let currentLanguage = getPreferredLanguage();
+
+      const translate = (key) => translations[currentLanguage][key] || translations.es[key] || key;
+
+      const applyLanguage = (language) => {
+        currentLanguage = language;
+        localStorage.setItem("yental-language", language);
+        document.documentElement.lang = language;
+        document.title = translate("meta.title");
+        metaDescription.setAttribute("content", translate("meta.description"));
+        contactSubject.value = translate("form.subject");
+        menuToggle.setAttribute("aria-label", document.body.classList.contains("nav-open") ? translate("menu.close") : translate("menu.open"));
+        languageToggle.setAttribute("aria-label", translate("language.label"));
+        languageCurrent.textContent = language.toUpperCase();
+        languageFlag.className = `language-flag is-${language}`;
+        languageOptions.forEach((option) => {
+          const isCurrent = option.dataset.langOption === language;
+          option.setAttribute("aria-current", String(isCurrent));
+          option.hidden = isCurrent;
+        });
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          element.textContent = translate(element.dataset.i18n);
+        });
+
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+          element.setAttribute("placeholder", translate(element.dataset.i18nPlaceholder));
+        });
+      };
+
+      languageToggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const isOpen = languageSelector.classList.toggle("language-open");
+        languageToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      languageOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          applyLanguage(option.dataset.langOption);
+          languageSelector.classList.remove("language-open");
+          languageToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageSelector.contains(event.target)) {
+          languageSelector.classList.remove("language-open");
+          languageToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      applyLanguage(currentLanguage);
 
       menuToggle.addEventListener("click", () => {
         const isOpen = document.body.classList.toggle("nav-open");
         menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? translate("menu.close") : translate("menu.open"));
       });
 
       nav.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
           document.body.classList.remove("nav-open");
           menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", translate("menu.open"));
         });
       });
 
@@ -421,8 +699,8 @@
         const formData = new FormData(contactForm);
 
         submitButton.disabled = true;
-        submitButton.textContent = "Enviando...";
-        setFormStatus("is-loading", "Enviando solicitud", "Estamos preparando el envío de tu consulta.");
+        submitButton.textContent = translate("status.sending");
+        setFormStatus("is-loading", translate("status.loadingTitle"), translate("status.loadingText"));
 
         try {
           const response = await fetch(contactForm.action, {
@@ -438,10 +716,10 @@
           }
 
           contactForm.reset();
-          setFormStatus("is-success", "Solicitud enviada", "Gracias. Hemos recibido tu consulta y te contactaremos pronto.");
+          setFormStatus("is-success", translate("status.successTitle"), translate("status.successText"));
           contactFormStatus.focus();
         } catch (error) {
-          setFormStatus("is-error", "No se pudo enviar", "Por favor, escríbenos directamente a info@yentalgroup.com.");
+          setFormStatus("is-error", translate("status.errorTitle"), translate("status.errorText"));
           contactFormStatus.focus();
         } finally {
           submitButton.disabled = false;
