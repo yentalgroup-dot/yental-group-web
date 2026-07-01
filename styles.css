@@ -256,7 +256,14 @@ section {
   align-items: center;
 }
 
+.language-selector,
+.language-selector * {
+  box-sizing: border-box;
+}
+
 .language-toggle {
+  -webkit-appearance: none;
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -304,6 +311,7 @@ section {
 }
 
 .language-flag-image {
+  display: block;
   width: 15px;
   height: 15px;
   flex: 0 0 15px;
@@ -349,6 +357,8 @@ section {
 }
 
 .language-menu button {
+  -webkit-appearance: none;
+  appearance: none;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -366,7 +376,7 @@ section {
 }
 
 .language-menu button[hidden] {
-  display: none;
+  display: none !important;
 }
 
 .language-menu button:hover,
