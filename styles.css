@@ -869,6 +869,10 @@ h3 {
   outline: none;
 }
 
+.form-status[hidden] {
+  display: none;
+}
+
 .form-status-mark {
   position: relative;
   width: 34px;
