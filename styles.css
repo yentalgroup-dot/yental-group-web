@@ -167,6 +167,10 @@ h3 {
   margin: 0 auto;
 }
 
+section {
+  scroll-margin-top: 112px;
+}
+
 .section-kicker {
   margin: 0 0 12px;
   color: var(--color-blue);
@@ -1272,20 +1276,24 @@ h3 {
   .company-section,
   .process-section,
   .contact-section {
-    padding-top: 54px;
-    padding-bottom: 54px;
+    padding-top: 66px;
+    padding-bottom: 66px;
     padding-left: var(--mobile-page-margin);
     padding-right: var(--mobile-page-margin);
   }
 
   .about-section,
   .operations-section {
-    padding-top: 72px;
-    padding-bottom: 72px;
+    padding-top: 78px;
+    padding-bottom: 78px;
+  }
+
+  section {
+    scroll-margin-top: 94px;
   }
 
   .section-heading {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
   }
 
   .section-heading p,
@@ -1300,17 +1308,23 @@ h3 {
   .company-layout,
   .contact-grid,
   .steps {
-    gap: 18px;
+    gap: 24px;
   }
 
   .operations-layout {
-    margin-bottom: 30px;
+    margin-bottom: 36px;
   }
 
   .about-title,
   .operations-title,
   .section-heading h2 {
     margin-bottom: 0;
+  }
+
+  .about-title,
+  .operations-title,
+  .section-heading h2 {
+    line-height: 1.08;
   }
 
   .about-text,
@@ -1455,12 +1469,94 @@ h3 {
   .operations-slide h3 {
     max-width: 320px;
     font-size: clamp(28px, 8.6vw, 38px);
-    line-height: 1.1;
+    line-height: 1.14;
   }
 
   .operations-slide p {
     max-width: 310px;
     font-size: 16px;
+  }
+
+  .service-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .service-card span {
+    margin-bottom: 28px;
+  }
+
+  .sectors-section {
+    background: #f3f5ff;
+  }
+
+  .sector-list {
+    gap: 0;
+  }
+
+  .sector-list div {
+    padding: 26px 0;
+    border-bottom-color: rgba(20, 23, 47, 0.12);
+  }
+
+  .sector-list div:first-child {
+    padding-top: 0;
+  }
+
+  .sector-list h3 {
+    margin-bottom: 12px;
+  }
+
+  .sector-list p {
+    color: rgba(31, 29, 31, 0.74);
+    line-height: 1.48;
+  }
+
+  .company-section p {
+    color: rgba(31, 29, 31, 0.68);
+  }
+
+  .stats-panel {
+    gap: 0;
+    padding: 24px;
+  }
+
+  .stats-panel div {
+    padding: 22px 0;
+  }
+
+  .stats-panel div:first-child {
+    padding-top: 0;
+  }
+
+  .steps {
+    gap: 18px;
+  }
+
+  .steps li {
+    padding: 24px;
+  }
+
+  .steps span {
+    margin-bottom: 22px;
+  }
+
+  .contact-section {
+    padding-top: 78px;
+  }
+
+  .contact-form {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .contact-form label {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    border-color: rgba(255, 255, 255, 0.38);
+    background: rgba(255, 255, 255, 0.14);
   }
 
   .form-row {
@@ -1473,10 +1569,6 @@ h3 {
 
   .service-grid {
     grid-template-columns: 1fr;
-  }
-
-  .service-card {
-    min-height: auto;
   }
 
   .site-footer {
