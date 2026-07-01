@@ -24,13 +24,13 @@
         <span></span>
       </button>
       <nav class="nav" id="primary-nav" aria-label="Navegación principal">
-        <a href="#que-hacemos">Qué hacemos</a>
-        <a href="#operaciones">Operaciones</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#sectores">Sectores</a>
-        <a href="#empresa">Empresa</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#que-hacemos" data-index="01">Qué hacemos</a>
+        <a href="#operaciones" data-index="02">Operaciones</a>
+        <a href="#servicios" data-index="03">Servicios</a>
+        <a href="#sectores" data-index="04">Sectores</a>
+        <a href="#empresa" data-index="05">Empresa</a>
+        <a href="#proceso" data-index="06">Proceso</a>
+        <a href="#contacto" data-index="07">Contacto</a>
       </nav>
     </header>
 
@@ -360,6 +360,37 @@
           menuToggle.setAttribute("aria-expanded", "false");
         });
       });
+
+      const navLinks = Array.from(nav.querySelectorAll("a"));
+      const navSections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      const setActiveNavLink = (sectionId) => {
+        navLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${sectionId}`);
+        });
+      };
+
+      setActiveNavLink(location.hash.slice(1) || navSections[0]?.id);
+      window.addEventListener("hashchange", () => {
+        setActiveNavLink(location.hash.slice(1) || navSections[0]?.id);
+      });
+
+      const navObserver = new IntersectionObserver((entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+
+        if (visibleEntry) {
+          setActiveNavLink(visibleEntry.target.id);
+        }
+      }, {
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: [0.12, 0.28, 0.45]
+      });
+
+      navSections.forEach((section) => navObserver.observe(section));
 
       const contactForm = document.querySelector("#contact-form");
       const contactFormStatus = document.querySelector("#contact-form-status");
