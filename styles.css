@@ -251,6 +251,8 @@ section {
 }
 
 .menu-toggle {
+  position: relative;
+  z-index: 1002;
   display: none;
   width: 42px;
   height: 42px;
@@ -262,11 +264,16 @@ section {
 }
 
 .menu-toggle span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   display: block;
   width: 18px;
   height: 2px;
-  margin: 5px auto;
+  margin: 0;
   background: var(--color-text-main);
+  transform: translate(-50%, -5px);
+  transform-origin: center;
   transition: transform 180ms ease, opacity 180ms ease;
 }
 
@@ -274,8 +281,12 @@ section {
   display: none;
 }
 
+.menu-toggle span:nth-child(3) {
+  transform: translate(-50%, 5px);
+}
+
 .nav-open .menu-toggle span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .nav-open .menu-toggle span:nth-child(2) {
@@ -283,7 +294,7 @@ section {
 }
 
 .nav-open .menu-toggle span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* =========================================================
@@ -1116,18 +1127,23 @@ section {
 
   .nav {
     position: fixed;
-    top: 96px;
-    right: clamp(18px, 5vw, 42px);
+    z-index: 1001;
+    top: 0;
+    right: 0;
+    bottom: 0;
     left: auto;
-    width: min(82vw, 360px);
+    width: min(64vw, 330px);
+    min-height: 100dvh;
     display: grid;
+    align-content: start;
     justify-content: stretch;
     gap: 8px;
-    padding: 18px;
+    padding: max(108px, calc(env(safe-area-inset-top) + 92px)) 20px max(28px, env(safe-area-inset-bottom));
     overflow: hidden;
     isolation: isolate;
     border: 1px solid rgba(255, 255, 255, 0.72);
-    border-radius: 28px;
+    border-right: 0;
+    border-radius: 32px 0 0 32px;
     color: rgba(255, 255, 255, 0.94);
     background:
       linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18) 42%, rgba(216, 222, 255, 0.22)),
@@ -1140,7 +1156,7 @@ section {
     backdrop-filter: blur(34px) saturate(175%) brightness(1.04);
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-10px) scale(0.98);
+    transform: translateX(24px);
     transition: opacity 220ms ease, transform 220ms ease;
   }
 
@@ -1201,7 +1217,7 @@ section {
   .nav-open .nav {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0) scale(1);
+    transform: translateX(0);
   }
 
   .home-banner {
@@ -1307,18 +1323,21 @@ section {
   }
 
   .nav {
-    top: 104px;
-    right: auto;
-    left: 50%;
-    width: min(calc(100vw - (var(--mobile-page-margin) * 2)), 310px);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: min(72vw, 284px);
+    min-height: 100dvh;
+    align-content: start;
     gap: 5px;
-    padding: 14px;
-    border-radius: 28px;
+    padding: max(112px, calc(env(safe-area-inset-top) + 96px)) 15px max(26px, env(safe-area-inset-bottom));
+    border-radius: 30px 0 0 30px;
     font-size: 12px;
     background:
       linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.2) 44%, rgba(216, 222, 255, 0.26)),
       rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -10px) scale(0.98);
+    transform: translateX(24px);
   }
 
   .nav a {
@@ -1327,7 +1346,7 @@ section {
   }
 
   .nav-open .nav {
-    transform: translate(-50%, 0) scale(1);
+    transform: translateX(0);
   }
 
   .home-banner {
