@@ -372,9 +372,15 @@
         });
       };
 
-      setActiveNavLink(location.hash.slice(1) || navSections[0]?.id);
+      const getActiveSectionFromHash = () => {
+        const hashId = location.hash.slice(1);
+        const hasMatchingLink = navLinks.some((link) => link.getAttribute("href") === `#${hashId}`);
+        return hasMatchingLink ? hashId : navSections[0]?.id;
+      };
+
+      setActiveNavLink(getActiveSectionFromHash());
       window.addEventListener("hashchange", () => {
-        setActiveNavLink(location.hash.slice(1) || navSections[0]?.id);
+        setActiveNavLink(getActiveSectionFromHash());
       });
 
       const navObserver = new IntersectionObserver((entries) => {

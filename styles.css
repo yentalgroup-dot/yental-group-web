@@ -214,9 +214,8 @@ section {
   gap: 24px;
   min-height: 78px;
   padding: 18px clamp(22px, 4vw, 58px);
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid rgba(222, 223, 240, 0.84);
-  backdrop-filter: blur(14px);
 }
 
 .brand {
@@ -1116,8 +1115,8 @@ section {
   }
 
   .nav {
-    position: absolute;
-    top: calc(100% + 18px);
+    position: fixed;
+    top: 96px;
     right: clamp(18px, 5vw, 42px);
     left: auto;
     width: min(82vw, 360px);
@@ -1125,21 +1124,41 @@ section {
     justify-content: stretch;
     gap: 8px;
     padding: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.72);
     border-radius: 28px;
-    color: rgba(255, 255, 255, 0.88);
-    background: rgba(20, 23, 47, 0.9);
-    box-shadow: 0 28px 80px rgba(20, 23, 47, 0.34);
-    -webkit-backdrop-filter: blur(26px) saturate(145%);
-    backdrop-filter: blur(26px) saturate(145%);
+    color: rgba(255, 255, 255, 0.94);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18) 42%, rgba(216, 222, 255, 0.22)),
+      rgba(255, 255, 255, 0.28);
+    box-shadow:
+      0 30px 80px rgba(20, 23, 47, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.76),
+      inset 0 -34px 80px rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(34px) saturate(175%) brightness(1.04);
+    backdrop-filter: blur(34px) saturate(175%) brightness(1.04);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px) scale(0.98);
     transition: opacity 220ms ease, transform 220ms ease;
   }
 
+  .nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.42), transparent 28%),
+      radial-gradient(circle at 86% 18%, rgba(85, 104, 255, 0.16), transparent 34%);
+    pointer-events: none;
+  }
+
   .nav a {
     position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1150,13 +1169,14 @@ section {
     color: inherit;
     text-decoration: none;
     line-height: 1;
-    transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+    text-shadow: 0 1px 18px rgba(20, 23, 47, 0.18);
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
   }
 
   .nav a::before {
     content: attr(data-index);
     width: 24px;
-    color: rgba(255, 255, 255, 0.48);
+    color: rgba(255, 255, 255, 0.68);
     font-size: 11px;
     font-weight: 800;
   }
@@ -1164,9 +1184,13 @@ section {
   .nav a:hover,
   .nav a.is-active {
     color: var(--color-white);
-    border-color: rgba(255, 255, 255, 0.34);
-    background: linear-gradient(90deg, rgba(85, 104, 255, 0.96), rgba(150, 132, 255, 0.72));
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.62);
+    background:
+      linear-gradient(90deg, rgba(85, 104, 255, 0.9), rgba(153, 132, 255, 0.58)),
+      rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 12px 32px rgba(85, 104, 255, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
   }
 
   .nav a.is-active::before,
@@ -1283,7 +1307,7 @@ section {
   }
 
   .nav {
-    top: calc(100% + 16px);
+    top: 104px;
     right: auto;
     left: 50%;
     width: min(calc(100vw - (var(--mobile-page-margin) * 2)), 310px);
@@ -1291,7 +1315,9 @@ section {
     padding: 14px;
     border-radius: 28px;
     font-size: 12px;
-    background: rgba(20, 23, 47, 0.93);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.2) 44%, rgba(216, 222, 255, 0.26)),
+      rgba(255, 255, 255, 0.3);
     transform: translate(-50%, -10px) scale(0.98);
   }
 
